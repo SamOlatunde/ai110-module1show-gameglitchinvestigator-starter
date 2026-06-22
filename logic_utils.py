@@ -1,3 +1,5 @@
+INITIAL_ATTEMPTS = 0
+
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
@@ -9,16 +11,32 @@ def parse_guess(raw: str):
 
     Returns: (ok: bool, guess_int: int | None, error_message: str | None)
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if raw is None or raw == "":
+        return False, None, "Enter a guess."
+
+    try:
+        if "." in raw:
+            value = int(float(raw))
+        else:
+            value = int(raw)
+    except Exception:
+        return False, None, "That is not a number."
+
+    return True, value, None
 
 
 def check_guess(guess, secret):
     """
-    Compare guess to secret and return (outcome, message).
+    Compare guess to secret and return the outcome string.
 
-    outcome examples: "Win", "Too High", "Too Low"
+    Returns: "Win", "Too High", or "Too Low"
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if guess == secret:
+        return "Win"
+    # FIX: original had "Go HIGHER!" here — swapped; guess > secret means guess is too high, so hint must say lower
+    if guess > secret:
+        return "Too High"
+    return "Too Low"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
