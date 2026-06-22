@@ -69,8 +69,8 @@ Document at least 3 bugs you found. Add rows as needed.
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
-    - I would keep bugs in their own session, make it easier for me and claude to resolve the issue without mixing things up
+    - I would keep bugs in their own session to make it easier for me and claude to resolve the issue without mixing things up
 - What is one thing you would do differently next time you work with AI on a coding task?
-  - I wooldn't fix small and obvious errors with claude, to save tokens 
+  - I wouldn't fix small and obvious errors with claude, to save tokens 
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
   - It's important to verify code manually and through automated test to ensure the code does what the agent claims it does. 
